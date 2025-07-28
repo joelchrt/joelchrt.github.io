@@ -15,9 +15,11 @@ body {
 }
 
 /* Apply the playful font to headings where it makes sense (e.g., your "Welcome Back!" title) */
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Patrick Hand', cursive;
+
+    h1, h2, h3, h4, h5, h6 {
+    font-family: "Times New Roman", Times, serif;
 }
+
 
 /* You can add more custom styles here if Tailwind classes aren't enough for something specific */
 /* For example, if you wanted a specific shadow or animation that's not a direct Tailwind utility */
