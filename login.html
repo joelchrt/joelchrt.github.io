@@ -10,7 +10,8 @@
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
     <div class="login-container bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
         <h2 class="text-3xl font-bold text-center mb-6 text-green-700">Welcome Back!</h2>
-        <form id="loginForm"> <div class="mb-4">
+        <form id="loginForm">
+            <div class="mb-4">
                 <label for="username" class="block text-gray-700 text-sm font-bold mb-2">Username or Email</label>
                 <input type="text" id="username" name="username" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter your username or email" required>
             </div>
@@ -28,11 +29,33 @@
             </button>
         </form>
         <div class="text-center mt-6 text-gray-600">
-            Don't have an account? <a href="#" class="font-bold text-green-600 hover:text-green-800">Sign Up</a>
+            Don't have an account? <a href="signup.html" class="font-bold text-green-600 hover:text-green-800">Sign Up</a>
         </div>
     </div>
 
     <script>
+        // Function to show the custom message box (from signup.html for consistency)
+        function showMessageBox(message) {
+            // Check if messageBox element exists before trying to manipulate it
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            if (messageBox && messageText) {
+                messageText.innerText = message;
+                messageBox.classList.remove('hidden');
+            } else {
+                // Fallback to alert if message box elements are not found (e.g., if this script is used without the message box HTML)
+                alert(message);
+            }
+        }
+
+        // Function to hide the custom message box (from signup.html for consistency)
+        function hideMessageBox() {
+            const messageBox = document.getElementById('messageBox');
+            if (messageBox) {
+                messageBox.classList.add('hidden');
+            }
+        }
+
         // Get the form element
         const loginForm = document.getElementById('loginForm');
 
@@ -50,8 +73,8 @@
                 // If credentials are correct, redirect to the new index.html (which was app-overview.html)
                 window.location.href = 'index.html'; // THIS IS THE UPDATED REDIRECTION
             } else {
-                // If credentials are incorrect, show an alert (you can make this a nicer message on the page)
-                alert('Invalid username or password. Please try again.');
+                // If credentials are incorrect, show a custom message box instead of alert
+                showMessageBox('Invalid username or password. Please try again.');
             }
         });
     </script>

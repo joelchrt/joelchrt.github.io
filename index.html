@@ -6,9 +6,20 @@
     <title> Housing App - Overview</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Removed Google Fonts link for Patrick Hand here, as it's now controlled by style.css -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body class="bg-gray-50 text-gray-800">
+
+    <!-- Custom Message Box HTML (added for consistency with login/signup pages) -->
+    <div id="messageBox" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center">
+            <p id="messageText" class="text-lg font-semibold mb-4"></p>
+            <button onclick="hideMessageBox()" class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline">
+                OK
+            </button>
+        </div>
+    </div>
 
     <header class="bg-green-700 text-white p-4 shadow-md">
         <div class="container mx-auto flex justify-between items-center">
@@ -142,6 +153,28 @@
             <p class="mt-4 text-sm text-gray-500">Built with passion in Uganda</p>
         </div>
     </footer>
+
+    <script>
+        // Function to show the custom message box (added for consistency)
+        function showMessageBox(message) {
+            const messageBox = document.getElementById('messageBox');
+            const messageText = document.getElementById('messageText');
+            if (messageBox && messageText) {
+                messageText.innerText = message;
+                messageBox.classList.remove('hidden');
+            } else {
+                alert(message); // Fallback if message box HTML is not present
+            }
+        }
+
+        // Function to hide the custom message box (added for consistency)
+        function hideMessageBox() {
+            const messageBox = document.getElementById('messageBox');
+            if (messageBox) {
+                messageBox.classList.add('hidden');
+            }
+        }
+    </script>
 
 </body>
 </html>
